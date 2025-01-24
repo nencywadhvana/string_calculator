@@ -9,4 +9,9 @@ RSpec.describe Calculator do
     expect(calculator.add('')).to eq(0)
   end
 
+  it 'returns number itself when input is only one' do
+    calculator = Calculator.new
+    expect(calculator.add('6')).to eq(6)
+  end
+
 end
