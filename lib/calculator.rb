@@ -5,7 +5,10 @@ class Calculator
     if inputs.start_with?("//")
       inputs = inputs.gsub(';', ',')
     end
-    inputs.gsub("\n", ",").split(",").map(&:to_i).sum
+    input_array = inputs.gsub("\n", ",").split(",").map(&:to_i)
+    negatives = input_array.select { |number| number < 0 }
+    raise "Negative numbers are not allowed: #{negatives.join(', ')}" unless negatives.empty?
+    input_array.sum
   end
 
 end
