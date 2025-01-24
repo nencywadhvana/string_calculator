@@ -21,4 +21,8 @@ RSpec.describe Calculator do
     expect(calculator.add('6,9,4')).to eq(19)
   end
 
+  it 'returns the sum of numbers separated by commas or newlines' do
+    expect(calculator.add("1\n2,3")).to eq(6)
+  end
+
 end
