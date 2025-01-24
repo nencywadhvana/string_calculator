@@ -25,4 +25,8 @@ RSpec.describe Calculator do
     expect(calculator.add("1\n2,3")).to eq(6)
   end
 
+  it 'returns the sum of numbers with new delimiters' do
+    expect(calculator.add("//;1,\n,3\n1,2")).to eq(7)
+  end
+
 end
