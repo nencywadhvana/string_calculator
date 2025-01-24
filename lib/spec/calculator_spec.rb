@@ -14,4 +14,9 @@ RSpec.describe Calculator do
     expect(calculator.add('6')).to eq(6)
   end
 
+  it 'returns sum of two numbers' do
+    calculator = Calculator.new
+    expect(calculator.add('6,9')).to eq(15)
+  end
+
 end
