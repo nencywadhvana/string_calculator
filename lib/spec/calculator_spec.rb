@@ -26,7 +26,7 @@ RSpec.describe Calculator do
   end
 
   it 'returns the sum of numbers with new delimiters' do
-    expect(calculator.add("//;1,\n,3\n1,2")).to eq(7)
+    expect(calculator.add("//;\n1;2")).to eq(3)
   end
 
   it 'Throw an exception for negative numbers' do
@@ -37,6 +37,10 @@ RSpec.describe Calculator do
 
   it 'ignores numbers larger than 1000' do
     expect(calculator.add("1001,2,3,2001")).to eq(5)
+  end
+
+  it 'handles same delimiters of any length' do
+    expect(calculator.add("//[***]\n1***2***3")).to eq(6)
   end
 
 end
