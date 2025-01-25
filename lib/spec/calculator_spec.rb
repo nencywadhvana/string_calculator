@@ -35,4 +35,8 @@ RSpec.describe Calculator do
 
   end
 
+  it 'ignores numbers larger than 1000' do
+    expect(calculator.add("1001,2,3,2001")).to eq(5)
+  end
+
 end
