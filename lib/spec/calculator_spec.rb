@@ -47,4 +47,8 @@ RSpec.describe Calculator do
     expect(calculator.add("//[*][%]\n1*2%3")).to eq(6)
   end
 
+   it 'handle case of multiple custom delimiters with any length' do
+    expect(calculator.add("//[***][%%]\n1***2%%3")).to eq(6)
+  end
+
 end
