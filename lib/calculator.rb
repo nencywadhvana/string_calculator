@@ -23,11 +23,10 @@ class Calculator
     delimiter = ',|\n'
     if inputs.start_with?("//")
       if inputs.start_with?("//[")
-        escaped_delimiters = []
-        inputs.scan(%r{\[(.*?)\]}).flatten.each { |d| escaped_delimiters << Regexp.escape(d) }
-        delimiter = escaped_delimiters.join("|")
+        delimiter = inputs.scan(%r{\[(.*?)\]}).flatten
       else
         inputs = inputs.gsub(';', ',')
+        delimiter = inputs.scan(%r{//(.)\n}).flatten
       end
       inputs = inputs.gsub(%r{//[^\n]+\n}, '') #remove delimiters from string
     end
